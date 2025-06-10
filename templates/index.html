@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos cadastrados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+</head>
+<body>
+    <h1>Alunos cadastrados</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data de nascimento</th>
+            <th>Endereço</th>
+            <th>Escolaridade</th>
+            <th>Curso</th>
+            <th>Login</th>
+            <th>Senha</th>
+        </tr>
+        {% for aluno in alunos %}
+        <tr>
+            <td>{{ aluno.id }}</td>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.data_nasc }}</td>
+            <td>{{ aluno.endereco }}</td>
+            <td>{{ aluno.escolaridade }}</td>
+            <td>{{ aluno.curso.id }}</td>
+            <td>{{ aluno.login }}</td>
+            <td>{{ aluno.senha }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/adicionar">Adicionar novo aluno</a>
+</body>
+</html>
